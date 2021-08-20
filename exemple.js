@@ -22,7 +22,5 @@ function tempChange(city){ //On envoie une requete ajax a l'api pour obtenir la 
 
 tempChange("Paris");
 const button = document.querySelector('button') 
-button.addEventListener('click', ()=>{
-    let city = prompt('De quelle ville souhaitez vous avoir la météo ?');
-    tempChange(city);
-});// on mets un écouteur sur le click sur button qui lancera tempChange avec city en parametre
+button.addEventListener('click', ()=> tempChange(prompt('De quelle ville souhaitez vous avoir la météo ?')));
+// on mets un écouteur sur le click sur button qui lancera tempChange avec city en parametre
