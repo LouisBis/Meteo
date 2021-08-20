@@ -22,7 +22,7 @@ function tempChange(){ //On envoie une requete ajax a l'api pour obtenir la temp
 
 
 function cityChange (){ //On affiche un prompte demandant city et on appel la requete ajax
-    city = prompt('De quelle city souhaitez vosu avoir la météo ?');
+    city = prompt('De quelle ville souhaitez vous avoir la météo ?');
     tempChange();
 }
 
