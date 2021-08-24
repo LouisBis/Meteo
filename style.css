@@ -1,10 +1,15 @@
 body{
-    height: 100vh;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+}
+
+section{
     display: flex;
+    height: 100vh;
+    width: 100vw;
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 div{
@@ -12,40 +17,102 @@ div{
     flex-flow: column wrap;
 }
 
-button{
+h1{
+    font-size: 5em;
+    margin: 0;
+    line-height: 0.6em;
+}
+
+
+h2{
+    font-size: 2em;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+p{
+    font-size: 6em;
+    margin: 0;
+    font-weight: bold;
+    margin-bottom: 0.1em;
+    margin-top: 0.3em;
+}
+
+#cityChange{
     border: none;
-    background-color: #4285F4;
-    color: white;
     font-size: 1.5em;
     height: 1.5em;
     width: 8em;
     border-radius: 10px;
 }
 
-button:hover{
+#cityChange:hover{
     box-shadow: 0px 0px 7px #4285F4;
     cursor:pointer;
 }
 
-h1{
-    font-size: 5em;
+#darkMode{
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border: none;
+    font-size: 1.2em;
+    height: 1.5em;
+    width: 2em;
+    border-radius: 10px;
+}
+#darkMode:hover{
+    box-shadow: 0px 0px 7px #c6c6c6;
+    cursor:pointer;
+}
+
+/*----------------Gestion du Light Mode----------------*/
+
+h1.light{
     color: #4285F4;
-    margin: 0;
-    line-height: 0.6em;
 }
 
-h2{
-    font-size: 2em;
-    margin: 0;
+h2.light{
     color : #F4B400;
-    text-transform: capitalize;
 }
 
-p{
-    font-size: 6em;
+p.light{
     color: #0F9D58;
-    margin: 0;
-    font-weight: bold;
-    margin-bottom: 0.1em;
-    margin-top: 0.3em;
+}
+
+button#cityChange.light{
+    background-color: #4285F4;
+    color: white;
+}
+
+button#darkMode.light{
+    background-color: #112F41;
+    color: rgb(216, 216, 185);
+}
+
+/*----------------Gestion du Dark Mode----------------*/
+
+button#darkMode.dark{
+    background-color: rgb(216, 216, 185);
+    color: #112F41;
+}
+
+button#darkMode.dark:hover{
+    box-shadow: 0px 0px 7px rgb(216, 216, 185);;
+    cursor:pointer;
+}
+
+.dark{
+    color: rgb(216, 216, 185);
+}
+
+button#cityChange.dark{
+    background-color: rgb(216, 216, 185);
+    color: #112F41;
+}
+
+button#cityChange.dark:hover{
+    box-shadow: 0px 0px 7px rgb(216, 216, 185);
+    cursor:pointer;
 }

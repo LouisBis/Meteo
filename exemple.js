@@ -20,7 +20,43 @@ function tempChange(city){ //On envoie une requete ajax a l'api pour obtenir la 
     }
 }
 
-tempChange("Paris");
-const button = document.querySelector('button') 
-button.addEventListener('click', ()=> tempChange(prompt('De quelle ville souhaitez vous avoir la météo ?')));
-// on mets un écouteur sur le click sur button qui lancera tempChange avec city en parametre
+function darkTheme(){
+    if (document.querySelector('h1').classList.contains('dark')){
+        //si la balise h1 possède une classe dark c'est que le theme sombre est activé
+        //alors on modifie nos classe pour passer en theme clair
+        document.body.style.backgroundColor = 'white';
+        document.querySelector('h1').className = 'light';
+        document.querySelector('h2').className = 'light';
+        document.querySelector('p').className = 'light';
+        document.querySelector('button#cityChange').className = 'light';
+        document.querySelector('button#darkMode').className = 'light';
+        document.querySelector('button#darkMode').textContent = '☽';
+        localStorage.setItem('theme', 'light');
+    }
+    else{
+        //sinon on passe en thème sombre 
+        document.body.style.backgroundColor = '#112F41';
+        document.querySelector('h1').className = 'dark';
+        document.querySelector('h2').className = 'dark';
+        document.querySelector('p').className = 'dark';
+        document.querySelector('button#cityChange').className = 'dark';
+        document.querySelector('button#darkMode').className = 'dark';
+        document.querySelector('button#darkMode').textContent = '☀';
+        localStorage.setItem('theme', 'sombre');
+    }
+}
+
+
+tempChange("Paris"); // on défini un ville au chargement de la page
+const cityButton = document.querySelector('#cityChange');
+cityButton.addEventListener('click', ()=> tempChange(prompt('De quelle ville souhaitez vous avoir la météo ?')));
+// on mets un écouteur sur le click de cityButton qui lancera tempChange avec un prompt en parametre
+
+const darkButton = document.querySelector('#darkMode');
+darkButton.addEventListener('click', darkTheme);
+// on mets un écouteur sur le click de darkButton qui lancera darkTheme, qui selon le mode actuelle s'adaptera
+
+if (localStorage.getItem('theme') == 'sombre'){
+    darkTheme(); //si notre theme est déja dans le localStorage alors on appel darkTheme
+}
+
