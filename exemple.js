@@ -32,6 +32,7 @@ function darkTheme(){
         document.querySelector('button#darkMode').className = 'light';
         document.querySelector('button#darkMode').textContent = '☽';
         localStorage.setItem('theme', 'light');
+        //et on enregistre ce choix dans nos localStorage
     }
     else{
         //sinon on passe en thème sombre 
@@ -43,7 +44,9 @@ function darkTheme(){
         document.querySelector('button#darkMode').className = 'dark';
         document.querySelector('button#darkMode').textContent = '☀';
         localStorage.setItem('theme', 'sombre');
+        //et on enregistre ce choix dans nos localStorage
     }
+    console.log(localStorage);
 }
 
 
@@ -59,4 +62,3 @@ darkButton.addEventListener('click', darkTheme);
 if (localStorage.getItem('theme') == 'sombre'){
     darkTheme(); //si notre theme est déja dans le localStorage alors on appel darkTheme
 }
-
