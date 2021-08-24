@@ -21,15 +21,13 @@ function tempChange(city){ //On envoie une requete ajax a l'api pour obtenir la 
 }
 
 function darkTheme(){
+    const c = document.querySelectorAll("h1, h2, p, button#cityChange, button#darkMode");
+
     if (document.querySelector('h1').classList.contains('dark')){
         //si la balise h1 possède une classe dark c'est que le theme sombre est activé
         //alors on modifie nos classe pour passer en theme clair
         document.body.style.backgroundColor = 'white';
-        document.querySelector('h1').className = 'light';
-        document.querySelector('h2').className = 'light';
-        document.querySelector('p').className = 'light';
-        document.querySelector('button#cityChange').className = 'light';
-        document.querySelector('button#darkMode').className = 'light';
+        for (i in c) c[i].className = 'light';
         document.querySelector('button#darkMode').textContent = '☽';
         localStorage.setItem('theme', 'light');
         //et on enregistre ce choix dans nos localStorage
@@ -37,16 +35,12 @@ function darkTheme(){
     else{
         //sinon on passe en thème sombre 
         document.body.style.backgroundColor = '#112F41';
-        document.querySelector('h1').className = 'dark';
-        document.querySelector('h2').className = 'dark';
-        document.querySelector('p').className = 'dark';
-        document.querySelector('button#cityChange').className = 'dark';
-        document.querySelector('button#darkMode').className = 'dark';
+        for (i in c) c[i].className = 'dark';
         document.querySelector('button#darkMode').textContent = '☀';
         localStorage.setItem('theme', 'sombre');
         //et on enregistre ce choix dans nos localStorage
     }
-    console.log(localStorage);
+    console.log(localStorage.getItem('theme'));
 }
 
 
