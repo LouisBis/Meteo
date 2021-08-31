@@ -21,13 +21,13 @@ function tempChange(city){ //On envoie une requete ajax a l'api pour obtenir la 
 }
 
 function darkTheme(){
+    "use strict";
     const c = document.querySelectorAll("h1, h2, p, button#cityChange, button#darkMode");
-
     if (document.querySelector('h1').classList.contains('dark')){
         //si la balise h1 possède une classe dark c'est que le theme sombre est activé
         //alors on modifie nos classe pour passer en theme clair
         document.body.style.backgroundColor = 'white';
-        for (i in c) c[i].className = 'light';
+        for (let i = 0; i < 4;i++) c[i].className = 'light';
         document.querySelector('button#darkMode').textContent = '☽';
         localStorage.setItem('theme', 'light');
         //et on enregistre ce choix dans nos localStorage
@@ -35,12 +35,14 @@ function darkTheme(){
     else{
         //sinon on passe en thème sombre 
         document.body.style.backgroundColor = '#112F41';
-        for (i in c) c[i].className = 'dark';
+        for (let i = 0; i < 4;i++) c[i].className = 'dark';
         document.querySelector('button#darkMode').textContent = '☀';
         localStorage.setItem('theme', 'sombre');
         //et on enregistre ce choix dans nos localStorage
+
+        // la boucle for in crée une erreure silencieuse
     }
-    console.log(localStorage.getItem('theme'));
+    console.log(localStorage);
 }
 
 
