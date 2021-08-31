@@ -20,59 +20,7 @@ function tempChange(city){ //On envoie une requete ajax a l'api pour obtenir la 
     }
 }
 
-function darkTheme(){
-<<<<<<< HEAD
-    const c = document.querySelectorAll("h1, h2, p, button#cityChange, button#darkMode");
-
-=======
-    "use strict";
-    const c = document.querySelectorAll("h1, h2, p, button#cityChange, button#darkMode");
->>>>>>> darkMode
-    if (document.querySelector('h1').classList.contains('dark')){
-        //si la balise h1 possède une classe dark c'est que le theme sombre est activé
-        //alors on modifie nos classe pour passer en theme clair
-        document.body.style.backgroundColor = 'white';
-<<<<<<< HEAD
-        for (i in c) c[i].className = 'light';
-=======
-        for (let i = 0; i < 4;i++) c[i].className = 'light';
->>>>>>> darkMode
-        document.querySelector('button#darkMode').textContent = '☽';
-        localStorage.setItem('theme', 'light');
-        //et on enregistre ce choix dans nos localStorage
-    }
-    else{
-        //sinon on passe en thème sombre 
-        document.body.style.backgroundColor = '#112F41';
-<<<<<<< HEAD
-        for (i in c) c[i].className = 'dark';
-        document.querySelector('button#darkMode').textContent = '☀';
-        localStorage.setItem('theme', 'sombre');
-        //et on enregistre ce choix dans nos localStorage
-    }
-    console.log(localStorage.getItem('theme'));
-=======
-        for (let i = 0; i < 4;i++) c[i].className = 'dark';
-        document.querySelector('button#darkMode').textContent = '☀';
-        localStorage.setItem('theme', 'sombre');
-        //et on enregistre ce choix dans nos localStorage
-
-        // la boucle for in crée une erreure silencieuse
-    }
-    console.log(localStorage);
->>>>>>> darkMode
-}
-
-
-tempChange("Paris"); // on défini un ville au chargement de la page
-const cityButton = document.querySelector('#cityChange');
-cityButton.addEventListener('click', ()=> tempChange(prompt('De quelle ville souhaitez vous avoir la météo ?')));
-// on mets un écouteur sur le click de cityButton qui lancera tempChange avec un prompt en parametre
-
-const darkButton = document.querySelector('#darkMode');
-darkButton.addEventListener('click', darkTheme);
-// on mets un écouteur sur le click de darkButton qui lancera darkTheme, qui selon le mode actuelle s'adaptera
-
-if (localStorage.getItem('theme') == 'sombre'){
-    darkTheme(); //si notre theme est déja dans le localStorage alors on appel darkTheme
-}
+tempChange("Paris");
+const button = document.querySelector('button') 
+button.addEventListener('click', ()=> tempChange(prompt('De quelle ville souhaitez vous avoir la météo ?')));
+// on mets un écouteur sur le click sur button qui lancera tempChange avec city en parametre
