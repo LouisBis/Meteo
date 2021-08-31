@@ -8,16 +8,20 @@
     <title>Appli météo</title>
 </head>
 <body>
-    <div>
-        <h1>Météo</h1>
-        <h2>Ville</h2>
-    </div>
-    <p>
-        <span id='temp'>XX.XX</span>°C
-    </p>
+    <section>
+        <div>
+            <h1 class='light'>Météo</h1>
+            <h2 class='light'>Ville</h2>
+        </div>
+        <p class='light'>
+            <span id='temp' class='light'>XX.XX</span>°C
+        </p>
 
-    <button>Changer de ville</button>
+        <button id="cityChange" class='light' >Changer de ville</button>
+    </section>
 
-    <script src="exemple.js"></script>
+    <button id='darkMode' class='light'>☽</button>
+
+    <script src="weather.js"></script>
 </body>
 </html>
