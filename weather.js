@@ -9,7 +9,6 @@ function tempChange(city){ //On envoie une requete ajax a l'api pour obtenir la 
             if (requete.status === 200){
                 const reponse = requete.response;
                 const temperature = Math.round(reponse.main.temp*10)/10;
-                console.log(temperature);
                 document.querySelector('#temp').textContent=temperature;
                 document.querySelector('h2').textContent=city;
             }
@@ -45,8 +44,39 @@ function darkTheme(){
     console.log(localStorage);
 }
 
+if ('geolocation' in navigator){
+    let option={
+        enableHighAccuracy : true
+    }
+    navigator.geolocation.watchPosition((position)=>{ //on utilise watchPosition et non get pour suivre le mouvement
+        const url = 'https://api.openweathermap.org/data/2.5/weather?lon='+position.coords.longitude+'&lat='+position.coords.latitude+'&units=metric&appid=c7c8b5706d5c9090ddaf2b10dea45605';
+        const requete = new XMLHttpRequest();
+        requete.open('GET', url);
+        requete.responseType = 'json';
+        requete.send();
+        requete.onload = function (){
+            if (requete.readyState === XMLHttpRequest.DONE){
+                if (requete.status === 200){
+                    const reponse = requete.response;
+                    const temperature = Math.round(reponse.main.temp*10)/10;
+                    document.querySelector('#temp').textContent=temperature;
+                    document.querySelector('h2').textContent= reponse.name;
+                }
+            }
+            else {
+                alert('Un problème est intervenu, merci de revenir plus tard.');
+            }
+        }
 
-tempChange("Paris"); // on défini un ville au chargement de la page
+    },tempChange('Paris'), option)
+    //Si la géolocalisation est refusé alors on affiche paris 
+
+}
+else {
+    tempChange('Paris')
+}
+
+//tempChange("Paris"); // on défini un ville au chargement de la page
 const cityButton = document.querySelector('#cityChange');
 cityButton.addEventListener('click', ()=> tempChange(prompt('De quelle ville souhaitez vous avoir la météo ?')));
 // on mets un écouteur sur le click de cityButton qui lancera tempChange avec un prompt en parametre
