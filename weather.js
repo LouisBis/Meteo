@@ -39,9 +39,6 @@ function darkTheme(){
 }
 
 if ('geolocation' in navigator){
-    let option={
-        enableHighAccuracy : true
-    }
     navigator.geolocation.watchPosition((position)=>{ //on utilise watchPosition et non get pour suivre le mouvement
         const urlGeoloc = 'https://api.openweathermap.org/data/2.5/weather?lon='+position.coords.longitude+'&lat='+position.coords.latitude+'&units=metric&appid=c7c8b5706d5c9090ddaf2b10dea45605';
         $.ajax({
@@ -54,7 +51,7 @@ if ('geolocation' in navigator){
             },
             error : ()=> alert('Un problème est intervenu, merci de revenir plus tard.')
         })
-    },tempChange('Paris'), option)
+    },tempChange('Paris'), {enableHighAccuracy : true})
     //Si la géolocalisation est refusé alors on affiche paris 
 
 }
